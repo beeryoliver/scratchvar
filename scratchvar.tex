@@ -1,0 +1,80 @@
+\documentclass{l3doc}
+
+
+\usepackage{scratchvar}
+
+\title{The \pkg{scratchvar} package \\ Define \pkg{expl3} scratch variables}
+\author{Oliver Beery}
+\date{Version 0.0.0\quad 10 November 2025}
+
+\setlist{parsep=0pt,itemsep=0pt}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+\section{Introduction}
+
+\subsection{About}
+
+The \pkg{scratchvar} package provides a single command \cs{scratchvar_generate:n} that defines module-specific \pkg{expl3} scratch variables for the \pkg{expl3} data types that have kernel-defined scratch variables.
+These module-specific scratch variables should be used in place of the scratch variables defined in the kernel to prevent name collision.
+
+\subsection{Loading the package}
+
+Requirements:
+\begin{itemize}
+  \item \LaTeXe{} version 2023-11-01 or newer
+  \item \pkg{l3kernel} version 2023-11-01 or newer
+\end{itemize}
+
+
+\section{Function}
+
+\begin{function}{\scratchvar_generate:n}
+  \begin{syntax}
+    \cs{scratchvar_generate:n} \Arg{module(s)}
+  \end{syntax}
+  The syntax \meta{module(s)} represents either a single module \meta{module} or a comma-separated list where each item is a \meta{module}.
+  For each \meta{module} in \meta{module(s)}, defines module-specific scratch variables for all \pkg{expl3} data types that have kernel-defined scratch variables (e.g.\ \cs{l_tmpa_tl}, \cs{g_tmpb_box}).
+  These data types include:
+  \begin{itemize}
+    \item |regex|
+    \item |bool|
+    \item |ior|
+    \item |iow|
+    \item |tl|
+    \item |str|
+    \item |seq|
+    \item |int|
+    \item |flag|
+    \item |clist|
+    \item |prop|
+    \item |dim|
+    \item |skip|
+    \item |muskip|
+    \item |fp|
+    \item |cctab|
+    \item |box|
+    \item |coffin|
+  \end{itemize}
+  |prop| variables are defined using \cs{prop_new:N} instead of \cs{prop_new_linked:N}.
+  The names of the defined scratch variables take the form:
+  \begin{itemize}
+    \item \cs{l__\meta{module}_tmpa_\meta{type}}
+    \item \cs{l__\meta{module}_tmpb_\meta{type}}
+    \item \cs{g__\meta{module}_tmpa_\meta{type}}
+    \item \cs{g__\meta{module}_tmpb_\meta{type}}
+  \end{itemize}
+  Exceptions:
+  \begin{itemize}
+    \item |ior|, |iow|, and |cctab| variables can only be defined globally.
+    \item |flag| variables can only be defined locally.
+  \end{itemize}
+\end{function}
+
+
+\end{document}

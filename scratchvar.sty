@@ -1,0 +1,59 @@
+%%% Package   : scratchvar -- Define expl3 scratch variables
+%%% Copyright : 2025 (c) Oliver Beery <beeryoliver@gmail.com>
+%%% CTAN      : <LINK>
+%%% Repository: https://github.com/beeryoliver/scratchvar
+%%% License   : The LaTeX Project Public License 1.3c
+
+%%> \section{Loading the package}
+
+\NeedsTeXFormat{LaTeX2e}[2023-11-01]
+\ProvidesExplPackage{scratchvar}{2025-11-10}{0.0.0}
+  {Define expl3 scratch variables}
+
+\msg_new:nnn { scratchvar } { l3kernel }
+  {
+    The~ scratchvar~ package~ could~ not~ load. \\
+    This~ package~ requires~
+    L3~ programming~ layer~ version~ 2023-11-01~ or~ newer.
+  }
+\IfExplAtLeastTF { 2023-11-01 } { }
+  { \msg_critical:nn { scratchvar } { l3kernel } }
+
+%%> \section{Define functions}
+
+\cs_generate_variant:Nn \regex_new:N { c }
+\cs_new_protected:Npn \scratchvar_generate:n #1
+  { \clist_map_function:nN {#1} \__scratchvar_generate:n }
+\cs_new_protected:Npn \__scratchvar_generate:n #1
+  {
+    \tl_map_inline:nn
+      {
+        {regex}
+        {bool}
+        {tl}
+        {str}
+        {seq}
+        {int}
+        {clist}
+        {prop}
+        {dim}
+        {skip}
+        {muskip}
+        {fp}
+        {box}
+        {coffin}
+      }
+      {
+        \use:c { ##1_new:c } { l__#1_tmpa_##1 }
+        \use:c { ##1_new:c } { l__#1_tmpb_##1 }
+        \use:c { ##1_new:c } { g__#1_tmpa_##1 }
+        \use:c { ##1_new:c } { g__#1_tmpb_##1 }
+      }
+    \tl_map_inline:nn { {ior} {iow} {cctab} }
+      {
+        \use:c { ##1_new:c } { g__#1_tmpa_##1 }
+        \use:c { ##1_new:c } { g__#1_tmpb_##1 }
+      }
+    \flag_new:c { l__#1_tmpa_flag }
+    \flag_new:c { l__#1_tmpb_flag }
+  }
