@@ -1,4 +1,4 @@
-Package: scratchvar -- Define expl3 scratch variables
+Package: scratchvar -- Define module-specific expl3 scratch variables
 Copyright: 2025 (c) Oliver Beery <beeryoliver@gmail.com>
 CTAN: <LINK>
 Repository: https://github.com/beeryoliver/scratchvar

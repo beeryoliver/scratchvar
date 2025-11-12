@@ -3,9 +3,9 @@
 
 \usepackage{scratchvar}
 
-\title{The \pkg{scratchvar} package \\ Define \pkg{expl3} scratch variables}
+\title{The \pkg{scratchvar} package \\ Define module-specific \pkg{expl3} scratch variables}
 \author{Oliver Beery}
-\date{Version 0.0.0\quad 10 November 2025}
+\date{Version 0.0.0\quad 11 November 2025}
 
 \setlist{parsep=0pt,itemsep=0pt}
 
@@ -21,7 +21,7 @@
 \subsection{About}
 
 The \pkg{scratchvar} package provides a single command \cs{scratchvar_generate:n} that defines module-specific \pkg{expl3} scratch variables for the \pkg{expl3} data types that have kernel-defined scratch variables.
-These module-specific scratch variables should be used in place of the scratch variables defined in the kernel to prevent name collision.
+Within the module (usually a package or a class), these module-specific scratch variables should be used in place of the kernel-defined scratch variables to prevent name collision.
 
 \subsection{Loading the package}
 
