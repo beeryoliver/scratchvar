@@ -1,13 +1,13 @@
-%%% Package   : scratchvar -- Define module-specific expl3 scratch variables
-%%% Copyright : 2025 (c) Oliver Beery <beeryoliver@gmail.com>
-%%% CTAN      : <LINK>
-%%% Repository: https://github.com/beeryoliver/scratchvar
-%%% License   : The LaTeX Project Public License 1.3c
+% Package   : scratchvar -- Define module-specific expl3 scratch variables
+% Copyright : 2025 (c) Oliver Beery <beeryoliver@gmail.com>
+% CTAN      : <LINK>
+% Repository: https://github.com/beeryoliver/scratchvar
+% License   : The LaTeX Project Public License 1.3c
 
-%%> \section{Loading the package}
+% Loading the package
 
 \NeedsTeXFormat{LaTeX2e}[2023-11-01]
-\ProvidesExplPackage{scratchvar}{2025-12-18}{0.0.0}
+\ProvidesExplPackage{scratchvar}{2025-12-27}{0.0.0}
   {Define module-specific expl3 scratch variables}
 
 \msg_new:nnn { scratchvar } { l3kernel }
@@ -19,7 +19,7 @@
 \IfExplAtLeastTF { 2023-11-01 } { }
   { \msg_critical:nn { scratchvar } { l3kernel } }
 
-%%> \section{Define functions}
+% Define functions
 
 \cs_generate_variant:Nn \regex_new:N { c }
 \cs_new_protected:Npn \scratchvar_generate:n #1
