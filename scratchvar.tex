@@ -6,7 +6,7 @@
 \title{The \pkg{scratchvar} package \\
 Define module-specific \pkg{expl3} scratch variables}
 \author{Oliver Beery}
-\date{Version 0.0.0\quad 27 December 2025}
+\date{Version 0.0.0\quad 3 January 2026}
 
 \setlist{parsep=0pt,itemsep=0pt}
 
@@ -49,6 +49,7 @@ Requirements:
   For each \meta{module} in \meta{module(s)}, defines module-specific scratch
   variables for all \pkg{expl3} data types that have kernel-defined scratch
   variables (e.g.\ \cs{l_tmpa_tl}, \cs{g_tmpb_box}).
+  The scratch variable is not defined if it is already defined.
   These data types include:
   \begin{itemize}
     \item |regex|
