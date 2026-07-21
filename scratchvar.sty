@@ -7,7 +7,7 @@
 % Loading the package
 
 \NeedsTeXFormat{LaTeX2e}[2023-11-01]
-\ProvidesExplPackage{scratchvar}{2026-01-03}{0.0.0}
+\ProvidesExplPackage{scratchvar}{2026-07-21}{0.0.0}
   {Define module-specific expl3 scratch variables}
 
 \msg_new:nnn { scratchvar } { l3kernel }
@@ -22,7 +22,7 @@
 % Define functions
 
 \cs_new_protected:Npn \scratchvar_generate:n #1
-  { \clist_map_function:nN {#1} \__scratchvar_generate:n }
+  { \exp_args:No \__scratchvar_generate:n { \tl_to_str:n {#1} } }
 \cs_new_protected:Npn \__scratchvar_generate:n #1
   {
     \tl_map_inline:nn
