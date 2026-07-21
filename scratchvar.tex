@@ -9,6 +9,7 @@ Define module-specific \pkg{expl3} scratch variables}
 \date{Version 0.0.0\quad 21 July 2026}
 
 \setlist{parsep=0pt,itemsep=0pt}
+\frenchspacing
 
 
 \begin{document}
@@ -45,7 +46,7 @@ Requirements:
     \cs{scratchvar_generate:n} \Arg{module}
   \end{syntax}
   Defines scratch variables with module name \meta{module} for all \pkg{expl3}
-  data types that have kernel-defined scratch variables (e.g.\ \cs{l_tmpa_tl},
+  data types that have kernel-defined scratch variables (e.g. \cs{l_tmpa_tl},
   \cs{g_tmpb_box}).
   \meta{module} is parsed as a \meta{string}.
   The scratch variable is not defined if it is already defined.
